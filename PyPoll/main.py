@@ -49,7 +49,7 @@ print(f"Winner: {winning_candidate}")
 print("----------------")
 
 # # Output as txt file
-output_file = os.path.join("pybank_results.txt")
+output_file = os.path.join("pypoll_results.txt")
 with open(output_file, "w", newline="") as datafile:
     datafile.write("Election Results")
     datafile.write("----------------")
