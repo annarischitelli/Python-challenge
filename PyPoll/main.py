@@ -9,7 +9,6 @@ vote_count = []
 total_votes = 0
 candidates = []
 individual_candidate = []
-percent_total_votes = []
 
 # Read csv and add to script
 with open (election_data) as csvfile:
@@ -31,38 +30,32 @@ with open (election_data) as csvfile:
             individual_candidate.append(candidates)
             vote_count.append(1)
 
-# Test list so far
-print(f"total_votes {total_votes}")
-print(f"For candidate: {individual_candidate}")
-print(f"Index: {individual_candidate.index(candidates)}")
+# # Test list so far
+# print(f"total_votes {total_votes}")
+# print(f"For candidate: {individual_candidate}")
+# print(f"Index: {individual_candidate.index(candidates)}")
 
-        
-#         if(row[2] not in candidates):
-#             candidates.append(row[2])
-#             vote_count.append(0)
-#         # Add vote to candidate list
-#         candidate_votes = candidates.index(row[2])
-#         total_votes[candidate_votes] += 1
-      
+percent_total_votes = []
+greatest_votes = vote_count[0]
+greatest_index = 0
 
-#     # Create list of individual candidates
-#     for i in set(candidates):
-#         individual_candidate.append(i)
-#         votes_per_candidate = candidates.count(i)
-#         vote_count.append(votes_per_candidate)
-#         percent_per_candidate = (votes_per_candidate/count)*100
-#         percent_total_votes.append(percent_per_candidate)
+for x in range(len(individual_candidate)):
+    percent_total_votes_V2 = round(vote_count[x]/total_votes*100,2)
+    percent_total_votes.append(percent_total_votes_V2)
 
-#     winner_count = max(vote_count)
-#     winner = individual_candidate[vote_count.index(winner_count)]
+    if vote_count[x] > greatest_votes:
+        greatest_votes = vote_count[x]
+        greatest_index = x
 
-# # Show all information
-# print("Election Results")
-# print("----------------")
-# print(f"Total Votes: {str(vote_count)}")
-# print("----------------")
-# for count in range (len(candidates)):
-#     print(f"{candidate(count)}: {percent_per_candidate[count]}% ({total_votes[count]})")
-# print("----------------")
-# print("Winner: {winner}")
-# print("----------------")
+    winner = individual_candidate[greatest_index]
+
+# Show all information
+print("Election Results")
+print("----------------")
+print(f"Total Votes: {str(vote_count)}")
+print("----------------")
+for count in range (len(candidates)):
+    print(f"{candidate(count)}: {percent_per_candidate[count]}% ({total_votes[count]})")
+print("----------------")
+print("Winner: {winner}")
+print("----------------")
