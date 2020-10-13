@@ -21,16 +21,16 @@ with open (election_data) as csvfile:
     # Read first row + count votes
     for row in csvreader:
         # Add each vote (row) to total votes
-        total_votes = total_votes + 1
-        # Identify candidate in row
-        candidate = row[2]
-        # Add vote to candidate tally
-        if individual_candidate in candidates:
-            candidates[individual_candidate] = candidates [individual_candidate] + 1
-        else:
-            candidates[individual_candidate] = 1
+        total_votes += 1
+        # Identify candidate in row + add to list
+        if(row[2] not in candidates):
+            candidates.append(row[2])
+            vote_count.append(0)
+        # Add vote to candidate list
+        candidate_votes = candidates.index(row[2])
+        total_votes[candidate_votes] += 1
+      
 
-        candidates.append(row[2])
     # Create list of individual candidates
     for i in set(candidates):
         individual_candidate.append(i)
