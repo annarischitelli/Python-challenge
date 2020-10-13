@@ -49,16 +49,16 @@ print(f"Winner: {winning_candidate}")
 print("----------------")
 
 # # Output as txt file
-# output_file = os.path.join("pybank_results.txt")
-# with open(output_file, "w", newline="") as datafile:
-#     datafile.write("Election Results")
-#     datafile.write("----------------")
-#     datafile.write(f"Total Votes: {vote_count}")
-#     datafile.write("----------------")
-#     for count in range (len(candidates)):
-#         datafile.write(f"{candidates[x]}: {percent_total_votes_V2[x]}% ({total_votes[x]})")
-#     datafile.write("----------------")
-#     datafile.write("Winner: {winner}")
-#     datafile.write("----------------")
+output_file = os.path.join("pybank_results.txt")
+with open(output_file, "w", newline="") as datafile:
+    datafile.write("Election Results")
+    datafile.write("----------------")
+    datafile.write(f"Total Votes: {total_votes}")
+    datafile.write("----------------")
+    for candidate_name, candidate_votes in candidates.items():
+        datafile.write(f"{candidate_name}: {round(candidate_votes/float(total_votes)*100)}% {candidate_votes}")
+    datafile.write("----------------")
+    datafile.write(f"Winner: {winning_candidate}")
+    datafile.write("----------------")
 
     
