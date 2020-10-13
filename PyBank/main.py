@@ -55,3 +55,15 @@ print(f"Total: ${str(total_pl)}")
 print(f"Avg Change: ${str(round(avg_change,2))}")
 print(f"Greatest Increase in Profit: {greatest_date} (${str(greatest_increase)})")
 print(f"Greatest Loss of Profit: {worst_date} (${str(greatest_decrease)})")
+
+# Output as txt file
+output_file = os.path.join("pybank_results.txt")
+with open(output_file, "w", newline="") as datafile:
+    datafile.write("Financial Analysis")
+    datafile.write("------------------")
+    datafile.write(f"Total Months: {str(total_months)}")
+    datafile.write(f"Total: ${str(total_pl)}")
+    datafile.write(f"Avg Change: ${str(round(avg_change,2))}")
+    datafile.write(f"Greatest Increase in Profit: {greatest_date} (${str(greatest_increase)})")
+    datafile.write(f"Greatest Loss of Profit: {worst_date} (${str(greatest_decrease)})")
+    
