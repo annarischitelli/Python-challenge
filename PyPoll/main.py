@@ -5,10 +5,9 @@ import csv
 election_data = os.path.join("PyPoll", "Resources", "election_data.csv")
 
 # Set variable value
-vote_count = []
+vote_count = 0
 total_votes = 0
 candidates = {}
-individual_candidate = []
 
 # Read csv and add to script
 with open (election_data) as csvfile:
@@ -43,7 +42,7 @@ print("Election Results")
 print("----------------")
 print(f"Total Votes: {total_votes}")
 print("----------------")
-for candidate_name in candidates:
+for candidate_name, candidate_votes in candidates.items():
     print(f"{candidate_name}: {round(candidate_votes/float(total_votes)*100)}% {candidate_votes}")
 print("----------------")
 print(f"Winner: {winning_candidate}")
